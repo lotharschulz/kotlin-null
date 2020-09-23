@@ -7,12 +7,12 @@ import kotlin.test.assertNull
 class NothingStyleTest {
     @Test
     fun testParseToNothingAlways(){
-        assertNull(NothingStyle.parseToNothingAlways())
-        assertEquals(NothingStyle.parseToNothingAlways(), null)
+        assertNull(NothingStyle.parse())
+        assertEquals(NothingStyle.parse(), null)
     }
     @Test
     fun testReciprocalToNothingAlways(){
-        assertNull(NothingStyle.reciprocalToNothingAlways())
-        assertEquals(NothingStyle.reciprocalToNothingAlways(), null)
+        assertNull(NothingStyle.reciprocal())
+        assertEquals(NothingStyle.reciprocal(), null)
     }
 }

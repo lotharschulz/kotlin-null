@@ -6,11 +6,11 @@ import kotlin.test.assertEquals
 class UnitStyleTest {
     @Test
     fun testParseToUnitAlways(){
-        assertEquals(UnitStyle.parseToUnitAlways(), Unit)
+        assertEquals(UnitStyle.parse(), Unit)
     }
     @Test
     fun testReciprocalToUnitAlways(){
-        assertEquals(UnitStyle.reciprocalToUnitAlways(), Unit)
+        assertEquals(UnitStyle.reciprocal(), Unit)
     }
 
 }

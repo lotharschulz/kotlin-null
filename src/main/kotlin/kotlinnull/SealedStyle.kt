@@ -9,11 +9,11 @@ sealed class Result {
 }
 
 object SealedStyle {
-    fun parseWithSealed(s: String): Result =
+    fun parse(s: String): Result =
             if (s.matches(Regex("-?[0-9]+"))) Result.IntResult(s.toInt())
             else Result.Exception(NumberFormatException("$s is not a valid integer.").message.toString())
 
-    fun reciprocalWithEither(i: Int): Result =
+    fun reciprocal(i: Int): Result =
             if (i == 0) Result.Exception(IllegalArgumentException("Cannot take reciprocal of 0.").message.toString())
             else Result.DoubleResult(1.0 / i)
 

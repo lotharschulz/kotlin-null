@@ -1,6 +1,6 @@
 package kotlinnull
 
 object UnitStyle {
-    fun parseToUnitAlways(){}
-    fun reciprocalToUnitAlways(){}
+    fun parse(){}
+    fun reciprocal(){}
 }

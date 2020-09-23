@@ -11,19 +11,19 @@ import kotlinnull.TestConsts.zeroInt
 class ExceptionStyleTest {
     @Test
     fun testReciprocalWithException() {
-        assert(ExceptionStyle.reciprocalWithException(fourInt) == oneQuarter) {"one fourth expected"}
+        assert(ExceptionStyle.reciprocal(fourInt) == oneQuarter) {"one fourth expected"}
     }
     @Test(expected = IllegalArgumentException::class)
     fun testReciprocalException() {
-        assert(ExceptionStyle.reciprocalWithException(zeroInt) != oneQuarter) {"one fourth expected"}
+        assert(ExceptionStyle.reciprocal(zeroInt) != oneQuarter) {"exception expected"}
     }
 
     @Test
     fun testParseWithException() {
-        assert(ExceptionStyle.parseWithException(fourtytwoString) == fourtytwoInt) {"42 expected"}
+        assert(ExceptionStyle.parse(fourtytwoString) == fourtytwoInt) {"42 expected"}
     }
     @Test(expected = IllegalArgumentException::class)
     fun testParseException() {
-        assert(ExceptionStyle.parseWithException(someString) != fourtytwoInt) {"some string expected"}
+        assert(ExceptionStyle.parse(someString) != fourtytwoInt) {"exception expected"}
     }
 }

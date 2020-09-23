@@ -1,6 +1,6 @@
 package kotlinnull
 
 object NothingStyle {
-    fun parseToNothingAlways(): Nothing? = null
-    fun reciprocalToNothingAlways(): Nothing? = null
+    fun parse(): Nothing? = null
+    fun reciprocal(): Nothing? = null
 }

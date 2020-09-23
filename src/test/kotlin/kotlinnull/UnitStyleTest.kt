@@ -2,7 +2,6 @@ package kotlinnull
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNull
 
 class UnitStyleTest {
     @Test

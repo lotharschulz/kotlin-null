@@ -2,10 +2,10 @@
 
 build
 ```shell script
-.gradlew build
+./gradlew build
 ```
 
 test
 ```shell script
-.gradlew test
+./gradlew test
 ```

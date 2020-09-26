@@ -20,6 +20,20 @@ class NullableStyleTest {
         assertEquals(NullableStyle.parse(SOME_STRING), null, SOME_STRING_CANT_BE_PARSED)
     }
 
+    // https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator
+    @Test
+    fun testParseElvisOperator(){
+        val parseResult = NullableStyle.parse(SOME_STRING) ?: -1
+        assertEquals(parseResult, -1, "Elvis operator turns it into -1")
+    }
+
+    // https://kotlinlang.org/docs/reference/null-safety.html#the--operator !! - operator
+    @Test
+    fun testParseDoubleExclamationOperator(){
+        val parseResultForSureNotNull = NullableStyle.parse(FOURTY_TWO_STRING)!!.div(42)
+        assertEquals(parseResultForSureNotNull, 1, "42/42 must be one")
+    }
+
     @Test
     fun testReciprocal(){
         assertEquals(NullableStyle.reciprocal(FOUR_INT), ONE_QUARTER, ONE_FOURTH_EXPECTED)

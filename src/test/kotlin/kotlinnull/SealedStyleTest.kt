@@ -1,24 +1,28 @@
 package kotlinnull
 
-import kotlinnull.TestConsts.fourInt
-import kotlinnull.TestConsts.fourtytwoInt
+import kotlinnull.TestConsts.FOUR_INT
+import kotlinnull.TestConsts.FOURTY_TWO_INT
 import kotlin.test.Test
-import kotlinnull.TestConsts.fourtytwoString
+import kotlinnull.TestConsts.FOURTY_TWO_STRING
+import kotlinnull.TestConsts.ONE_FOURTH_EXPECTED
 import kotlin.test.assertEquals
-import kotlinnull.TestConsts.someString
-import kotlinnull.TestConsts.oneQuarter
-import kotlinnull.TestConsts.zeroInt
+import kotlinnull.TestConsts.SOME_STRING
+import kotlinnull.TestConsts.ONE_QUARTER
+import kotlinnull.TestConsts.PARSING_42_STRING
+import kotlinnull.TestConsts.RECIPROCAL_ZERO
+import kotlinnull.TestConsts.SOME_STRING_CANT_BE_PARSED
+import kotlinnull.TestConsts.ZERO_INT
 
 class SealedStyleTest {
     @Test
     fun testParse(){
-        assertEquals(SealedStyle.parse(fourtytwoString), Result.IntResult(fourtytwoInt), "parsing 42 shall return a valid result.")
-        assertEquals(SealedStyle.parse(someString), Result.Exception("$someString is not a valid integer."), "$someString can't be parsed.")
+        assertEquals(SealedStyle.parse(FOURTY_TWO_STRING), Result.IntResult(FOURTY_TWO_INT), PARSING_42_STRING)
+        assertEquals(SealedStyle.parse(SOME_STRING), Result.Exception("$SOME_STRING is not a valid integer."), SOME_STRING_CANT_BE_PARSED)
     }
 
     @Test
     fun testReciprocal(){
-        assertEquals(SealedStyle.reciprocal(fourInt), Result.DoubleResult(oneQuarter), "one fourth expected.")
-        assertEquals(SealedStyle.reciprocal(zeroInt), Result.Exception("Cannot take reciprocal of 0."), "reciprocal of 0 must cause an exception.")
+        assertEquals(SealedStyle.reciprocal(FOUR_INT), Result.DoubleResult(ONE_QUARTER), ONE_FOURTH_EXPECTED)
+        assertEquals(SealedStyle.reciprocal(ZERO_INT), Result.Exception("Cannot take reciprocal of 0."), RECIPROCAL_ZERO)
     }
 }

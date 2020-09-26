@@ -5,27 +5,30 @@ import arrow.core.Some
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
-import kotlinnull.TestConsts.fourInt
-import kotlinnull.TestConsts.fourtytwoInt
-import kotlinnull.TestConsts.fourtytwoString
-import kotlinnull.TestConsts.oneQuarter
-import kotlinnull.TestConsts.someString
-import kotlinnull.TestConsts.zeroInt
+import kotlinnull.TestConsts.FOUR_INT
+import kotlinnull.TestConsts.FOURTY_TWO_INT
+import kotlinnull.TestConsts.FOURTY_TWO_STRING
+import kotlinnull.TestConsts.NONE_EXPECTED
+import kotlinnull.TestConsts.ONE_QUARTER
+import kotlinnull.TestConsts.SOME_EXPECTED_NUMBER
+import kotlinnull.TestConsts.SOME_EXPECTED_GREATER_ZERO
+import kotlinnull.TestConsts.SOME_STRING
+import kotlinnull.TestConsts.ZERO_INT
 
 class EitherStyleTest {
     @Test
     fun testParseWithOption() {
-        assertTrue(OptionStyle.parse(fourtytwoString).isDefined(), "some expected for number input")
-        assertEquals(OptionStyle.parse(fourtytwoString), Some(fourtytwoInt), "some expected for number input")
-        assertTrue(OptionStyle.parse(someString).isEmpty(), "none expected for not valid integer input")
-        assertEquals(OptionStyle.parse(someString), None, "none expected for not valid integer input")
+        assertTrue(OptionStyle.parse(FOURTY_TWO_STRING).isDefined(), SOME_EXPECTED_NUMBER)
+        assertEquals(OptionStyle.parse(FOURTY_TWO_STRING), Some(FOURTY_TWO_INT), SOME_EXPECTED_NUMBER)
+        assertTrue(OptionStyle.parse(SOME_STRING).isEmpty(), NONE_EXPECTED)
+        assertEquals(OptionStyle.parse(SOME_STRING), None, NONE_EXPECTED)
     }
 
     @Test
     fun testReciprocalWithOption() {
-        assertTrue(OptionStyle.reciprocal(fourInt).isDefined(), "some expected for number input greater than zero")
-        assertEquals(OptionStyle.reciprocal(fourInt), Some(oneQuarter), "some expected for number input greater than zero")
-        assertTrue(OptionStyle.reciprocal(zeroInt).isEmpty(), "none expected for not valid integer input")
-        assertEquals(OptionStyle.reciprocal(zeroInt), None, "none expected for not valid integer input")
+        assertTrue(OptionStyle.reciprocal(FOUR_INT).isDefined(), SOME_EXPECTED_GREATER_ZERO)
+        assertEquals(OptionStyle.reciprocal(FOUR_INT), Some(ONE_QUARTER), SOME_EXPECTED_GREATER_ZERO)
+        assertTrue(OptionStyle.reciprocal(ZERO_INT).isEmpty(), NONE_EXPECTED)
+        assertEquals(OptionStyle.reciprocal(ZERO_INT), None, NONE_EXPECTED)
     }
 }

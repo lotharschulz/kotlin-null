@@ -10,7 +10,7 @@ class NothingStyleTest {
         assertNull(NothingStyle.parse())
         assertEquals(NothingStyle.parse(), null)
     }
-    @Test
+    @Test(expected = IllegalArgumentException::class)
     fun testReciprocalToNothingAlways(){
         assertNull(NothingStyle.reciprocal())
         assertEquals(NothingStyle.reciprocal(), null)

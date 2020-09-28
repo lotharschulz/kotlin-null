@@ -7,12 +7,12 @@ import kotlin.test.assertNull
 
 class NothingStyleTest {
     @Test
-    fun testParseToNothingAlways(){
+    fun testParse(){
         assertNull(NothingStyle.parse())
         assertEquals(NothingStyle.parse(), null)
     }
     @Test(expected = IllegalArgumentException::class)
-    fun testReciprocalToNothingAlways(){
+    fun testReciprocal(){
         NothingStyle.reciprocal()
         assertEquals(NothingStyle.reciprocal(), Unit)
     }

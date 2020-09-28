@@ -5,7 +5,7 @@ import kotlin.test.assertEquals
 
 class UnitStyleTest {
     @Test
-    fun testParseToUnitAlways(){
+    fun testParse(){
         assertEquals(UnitStyle.parse(), Unit)
     }
 
@@ -15,7 +15,7 @@ class UnitStyleTest {
         assertEquals(UnitStyle.callFunction(printNumber), Unit)
     }
     @Test
-    fun testReciprocalToUnitAlways(){
+    fun testReciprocal(){
         assertEquals(UnitStyle.reciprocal(), Unit)
     }
 

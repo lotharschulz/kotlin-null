@@ -1,40 +1,34 @@
 package kotlinnull
 
-import arrow.core.Right
-import arrow.core.left
-import arrow.core.right
+import arrow.core.None
+import arrow.core.Some
 import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertTrue
-import io.kotlintest.assertions.arrow.either.shouldBeRight
-import io.kotlintest.assertions.arrow.either.shouldBeLeft
 import kotlinnull.TestConsts.FOUR_INT
 import kotlinnull.TestConsts.FOURTY_TWO_INT
 import kotlinnull.TestConsts.FOURTY_TWO_STRING
-import kotlinnull.TestConsts.LEFT_EXPECTED
-import kotlinnull.TestConsts.ONE_FOURTH_EXPECTED
+import kotlinnull.TestConsts.NONE_EXPECTED
 import kotlinnull.TestConsts.ONE_QUARTER
-import kotlinnull.TestConsts.PARSING_42_STRING
-import kotlinnull.TestConsts.RIGHT_EXPECTED_NUMBER
+import kotlinnull.TestConsts.SOME_EXPECTED_NUMBER
+import kotlinnull.TestConsts.SOME_EXPECTED_GREATER_ZERO
 import kotlinnull.TestConsts.SOME_STRING
-import kotlinnull.TestConsts.SOME_STRING_CANT_BE_PARSED
 import kotlinnull.TestConsts.ZERO_INT
 
 class OptionStyleTest {
     @Test
-    fun testParseWithEither() {
-        assertTrue(EitherStyle.parse(FOURTY_TWO_STRING).isRight(), PARSING_42_STRING)
-        EitherStyle.parse(FOURTY_TWO_STRING).right().shouldBeRight(Right(FOURTY_TWO_INT))
-        assertTrue(EitherStyle.parse(SOME_STRING).isLeft(), SOME_STRING_CANT_BE_PARSED)
-        EitherStyle.parse(SOME_STRING).left().shouldBeLeft()
+    fun testParseWithOption() {
+        assertTrue(OptionStyle.parse(FOURTY_TWO_STRING).isDefined(), SOME_EXPECTED_NUMBER)
+        assertEquals(OptionStyle.parse(FOURTY_TWO_STRING), Some(FOURTY_TWO_INT), SOME_EXPECTED_NUMBER)
+        assertTrue(OptionStyle.parse(SOME_STRING).isEmpty(), NONE_EXPECTED)
+        assertEquals(OptionStyle.parse(SOME_STRING), None, NONE_EXPECTED)
     }
 
     @Test
-    fun testReciprocalWithEither() {
-        assertTrue(EitherStyle.reciprocal(FOUR_INT).isRight(), RIGHT_EXPECTED_NUMBER)
-        // https://stackoverflow.com/a/54667128
-        // consider ShouldSpec as in https://github.com/BTheunissen/toy-robot-kotlin/blob/master/src/test/kotlin/robot/DirectionSpec.kt @ 2020 09 21
-        EitherStyle.reciprocal(FOUR_INT).right().shouldBeRight(Right(ONE_QUARTER))
-        assertTrue(EitherStyle.reciprocal(ZERO_INT).isLeft(), LEFT_EXPECTED)
-        EitherStyle.reciprocal(ZERO_INT).left().shouldBeLeft()
+    fun testReciprocalWithOption() {
+        assertTrue(OptionStyle.reciprocal(FOUR_INT).isDefined(), SOME_EXPECTED_GREATER_ZERO)
+        assertEquals(OptionStyle.reciprocal(FOUR_INT), Some(ONE_QUARTER), SOME_EXPECTED_GREATER_ZERO)
+        assertTrue(OptionStyle.reciprocal(ZERO_INT).isEmpty(), NONE_EXPECTED)
+        assertEquals(OptionStyle.reciprocal(ZERO_INT), None, NONE_EXPECTED)
     }
 }

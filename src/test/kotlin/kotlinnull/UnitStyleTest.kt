@@ -9,7 +9,7 @@ class UnitStyleTest {
         assertEquals(UnitStyle.parse(), Unit)
     }
 
-    val printNumber = { x: Number -> println("Number: $x") }
+    private val printNumber = { x: Number -> println("Number: $x") }
     @Test
     fun testCallFunction(){
         assertEquals(UnitStyle.callFunction(printNumber), Unit)

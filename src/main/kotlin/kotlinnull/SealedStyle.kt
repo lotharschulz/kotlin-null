@@ -1,7 +1,5 @@
 package kotlinnull
 
-import arrow.core.Either
-
 sealed class Result {
     data class IntResult(val value: Int): Result()
     data class DoubleResult(val value: Double): Result()

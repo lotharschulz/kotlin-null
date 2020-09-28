@@ -12,12 +12,18 @@ import kotlinnull.TestConsts.PARSING_42_STRING
 import kotlinnull.TestConsts.RECIPROCAL_ZERO
 import kotlinnull.TestConsts.SOME_STRING_CANT_BE_PARSED
 import kotlinnull.TestConsts.ZERO_INT
+import kotlin.test.fail
 
 class SealedStyleTest {
     @Test
     fun testParse(){
         assertEquals(SealedStyle.parse(FOURTY_TWO_STRING), Result.IntResult(FOURTY_TWO_INT), PARSING_42_STRING)
         assertEquals(SealedStyle.parse(SOME_STRING), Result.Exception("$SOME_STRING is not a valid integer."), SOME_STRING_CANT_BE_PARSED)
+
+        when(val r = SealedStyle.parse(FOURTY_TWO_STRING)) {
+            is Result.IntResult -> assertEquals(r.value, FOURTY_TWO_INT)
+            is Result.Exception -> fail(r.error)
+        }
     }
 
     @Test

@@ -20,7 +20,7 @@ import kotlinnull.TestConsts.ZERO_INT
 
 class EitherStyleTest {
     @Test
-    fun testParseWithEither() {
+    fun testParse() {
         assertTrue(EitherStyle.parse(FOURTY_TWO_STRING).isRight(), PARSING_42_STRING)
         EitherStyle.parse(FOURTY_TWO_STRING).right().shouldBeRight(Right(FOURTY_TWO_INT))
         assertTrue(EitherStyle.parse(SOME_STRING).isLeft(), SOME_STRING_CANT_BE_PARSED)
@@ -28,7 +28,7 @@ class EitherStyleTest {
     }
 
     @Test
-    fun testReciprocalWithEither() {
+    fun testReciprocal() {
         assertTrue(EitherStyle.reciprocal(FOUR_INT).isRight(), RIGHT_EXPECTED_NUMBER)
         // https://stackoverflow.com/a/54667128
         // consider ShouldSpec as in https://github.com/BTheunissen/toy-robot-kotlin/blob/master/src/test/kotlin/robot/DirectionSpec.kt @ 2020 09 21

@@ -2,6 +2,7 @@ package kotlinnull
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertNull
 
 class NothingStyleTest {
@@ -12,7 +13,7 @@ class NothingStyleTest {
     }
     @Test(expected = IllegalArgumentException::class)
     fun testReciprocalToNothingAlways(){
-        assertNull(NothingStyle.reciprocal())
-        assertEquals(NothingStyle.reciprocal(), null)
+        NothingStyle.reciprocal()
+        assertEquals(NothingStyle.reciprocal(), Unit)
     }
 }

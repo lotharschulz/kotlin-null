@@ -13,7 +13,7 @@ class NothingStyleTest {
     }
     @Test(expected = IllegalArgumentException::class)
     fun testReciprocal(){
-        NothingStyle.reciprocal()
-        assertEquals(NothingStyle.reciprocal(), Unit)
+        val r:Nothing? = NothingStyle.reciprocal()
+        assert(r == Unit)
     }
 }

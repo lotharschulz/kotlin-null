@@ -17,18 +17,18 @@ import kotlin.test.fail
 class SealedStyleTest {
     @Test
     fun testParse(){
-        assertEquals(SealedStyle.parse(FOURTY_TWO_STRING), Result.IntResult(FOURTY_TWO_INT), PARSING_42_STRING)
-        assertEquals(SealedStyle.parse(SOME_STRING), Result.Exception("$SOME_STRING is not a valid integer."), SOME_STRING_CANT_BE_PARSED)
+        assertEquals(SealedStyle.parse(FOURTY_TWO_STRING), ParseResult.IntResult(FOURTY_TWO_INT), PARSING_42_STRING)
+        assertEquals(SealedStyle.parse(SOME_STRING), ParseResult.Exception("$SOME_STRING is not a valid integer."), SOME_STRING_CANT_BE_PARSED)
 
         when(val r = SealedStyle.parse(FOURTY_TWO_STRING)) {
-            is Result.IntResult -> assertEquals(r.value, FOURTY_TWO_INT)
-            is Result.Exception -> fail(r.error)
+            is ParseResult.IntResult -> assertEquals(r.value, FOURTY_TWO_INT)
+            is ParseResult.Exception -> fail(r.error)
         }
     }
 
     @Test
     fun testReciprocal(){
-        assertEquals(SealedStyle.reciprocal(FOUR_INT), Result.DoubleResult(ONE_QUARTER), ONE_FOURTH_EXPECTED)
-        assertEquals(SealedStyle.reciprocal(ZERO_INT), Result.Exception("Cannot take reciprocal of 0."), RECIPROCAL_ZERO)
+        assertEquals(SealedStyle.reciprocal(FOUR_INT), ReciprocalResult.DoubleResult(ONE_QUARTER), ONE_FOURTH_EXPECTED)
+        assertEquals(SealedStyle.reciprocal(ZERO_INT), ReciprocalResult.Exception("Cannot take reciprocal of 0."), RECIPROCAL_ZERO)
     }
 }

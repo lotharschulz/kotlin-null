@@ -6,14 +6,13 @@ import kotlin.test.assertFalse
 import kotlin.test.assertNull
 
 class NothingStyleTest {
-    @Test
+    @Test(expected = IllegalArgumentException::class)
     fun testParse(){
-        assertNull(NothingStyle.parse())
-        assertEquals(NothingStyle.parse(), null)
+        NothingStyle.parse()
     }
+
     @Test(expected = IllegalArgumentException::class)
     fun testReciprocal(){
-        val r:Nothing? = NothingStyle.reciprocal()
-        assert(r == Unit)
+        NothingStyle.reciprocal()
     }
 }

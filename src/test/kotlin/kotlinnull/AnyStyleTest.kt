@@ -23,7 +23,7 @@ class AnyStyleTest {
     @Test
     fun testReciprocal(){
         assertEquals(AnyStyle.reciprocal(FOUR_INT), ONE_QUARTER, ONE_FOURTH_EXPECTED)
-        assertEquals(AnyStyle.reciprocal(ZERO_INT).toString(), IllegalArgumentException("Cannot take reciprocal of 0.").toString(), RECIPROCAL_ZERO)
+        assertEquals(AnyStyle.reciprocal(ZERO_INT).toString(), IllegalArgumentException("Can not take reciprocal of 0.").toString(), RECIPROCAL_ZERO)
     }
 
 }

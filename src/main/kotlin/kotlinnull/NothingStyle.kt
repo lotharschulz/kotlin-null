@@ -1,6 +1,6 @@
 package kotlinnull
 
 object NothingStyle {
-    fun parse(): Nothing? = null
-    fun reciprocal(): Nothing? = throw IllegalArgumentException("Cannot take reciprocal of 0.")
+    fun parse(): Nothing = throw IllegalArgumentException("Can not parse anything.")
+    fun reciprocal(): Nothing = throw IllegalArgumentException("Can not take reciprocal of anything.")
 }

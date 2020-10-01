@@ -16,7 +16,7 @@ object SealedStyle {
             else ParseResult.Exception(NumberFormatException("$s is not a valid integer.").message.toString())
 
     fun reciprocal(i: Int): ReciprocalResult =
-            if (i == 0) ReciprocalResult.Exception(IllegalArgumentException("Cannot take reciprocal of 0.").message.toString())
+            if (i == 0) ReciprocalResult.Exception(IllegalArgumentException("Can not take reciprocal of 0.").message.toString())
             else ReciprocalResult.DoubleResult(1.0 / i)
 
 }

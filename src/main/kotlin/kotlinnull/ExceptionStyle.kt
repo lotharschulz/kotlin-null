@@ -3,9 +3,9 @@ package kotlinnull
 object ExceptionStyle {
     fun parse(s: String): Int =
             if (s.matches(Regex("-?[0-9]+"))) s.toInt()
-            else throw IllegalArgumentException("Cannot parse string of with characters.")
+            else throw IllegalArgumentException("Can not parse string of with characters.")
 
     fun reciprocal(i: Int): Double =
-            if (i == 0) throw IllegalArgumentException("Cannot take reciprocal of 0.")
+            if (i == 0) throw IllegalArgumentException("Can not take reciprocal of 0.")
             else 1.0 / i
 }

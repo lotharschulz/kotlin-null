@@ -8,6 +8,6 @@ object EitherStyle {
             else Either.Left(NumberFormatException("$s is not a valid integer."))
 
     fun reciprocal(i: Int): Either<IllegalArgumentException, Double> =
-            if (i == 0) Either.Left(IllegalArgumentException("Cannot take reciprocal of 0."))
+            if (i == 0) Either.Left(IllegalArgumentException("Can not take reciprocal of 0."))
             else Either.Right(1.0 / i)
 }

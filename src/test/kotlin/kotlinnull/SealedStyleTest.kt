@@ -29,6 +29,6 @@ class SealedStyleTest {
     @Test
     fun testReciprocal(){
         assertEquals(SealedStyle.reciprocal(FOUR_INT), ReciprocalResult.DoubleResult(ONE_QUARTER), ONE_FOURTH_EXPECTED)
-        assertEquals(SealedStyle.reciprocal(ZERO_INT), ReciprocalResult.Exception("Cannot take reciprocal of 0."), RECIPROCAL_ZERO)
+        assertEquals(SealedStyle.reciprocal(ZERO_INT), ReciprocalResult.Exception("Can not take reciprocal of 0."), RECIPROCAL_ZERO)
     }
 }

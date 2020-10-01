@@ -6,7 +6,7 @@ object AnyStyle {
             else NumberFormatException("$s is not a valid integer.")
 
     fun reciprocal(i: Int): Any =
-            if (i == 0) IllegalArgumentException("Cannot take reciprocal of 0.")
+            if (i == 0) IllegalArgumentException("Can not take reciprocal of 0.")
             else 1.0 / i
 
 }

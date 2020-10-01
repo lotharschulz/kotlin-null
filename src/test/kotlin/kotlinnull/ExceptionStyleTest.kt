@@ -18,7 +18,7 @@ class ExceptionStyleTest {
     }
     @Test(expected = IllegalArgumentException::class)
     fun testParseException() {
-        assert(ExceptionStyle.parse(SOME_STRING) != FOURTY_TWO_INT) {EXCEPTION_EXPECTED}
+        ExceptionStyle.parse(SOME_STRING)
     }
 
     @Test
@@ -27,6 +27,6 @@ class ExceptionStyleTest {
     }
     @Test(expected = IllegalArgumentException::class)
     fun testReciprocalException() {
-        assert(ExceptionStyle.reciprocal(ZERO_INT) != ONE_QUARTER) {EXCEPTION_EXPECTED}
+        ExceptionStyle.reciprocal(ZERO_INT)
     }
 }

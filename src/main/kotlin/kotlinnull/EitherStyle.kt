@@ -1,13 +1,19 @@
 package kotlinnull
 
 import arrow.core.Either
+import arrow.core.None
+import arrow.core.Some
 
 object EitherStyle {
     fun parse(s: String): Either<NumberFormatException, Int> =
-            if (s.matches(Regex("-?[0-9]+"))) Either.Right(s.toInt())
-            else Either.Left(NumberFormatException("$s is not a valid integer."))
+        when(s.matches(Regex("-?[0-9]+"))){
+            true -> Either.Right(s.toInt())
+            false -> Either.Left(NumberFormatException("$s is not a valid integer."))
+        }
 
     fun reciprocal(i: Int): Either<IllegalArgumentException, Double> =
-            if (i == 0) Either.Left(IllegalArgumentException("Can not take reciprocal of 0."))
-            else Either.Right(1.0 / i)
+        when(i == 0){
+            true -> Either.Left(IllegalArgumentException("Can not take reciprocal of 0."))
+            false -> Either.Right(1.0 / i)
+        }
 }

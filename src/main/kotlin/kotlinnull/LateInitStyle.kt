@@ -24,7 +24,4 @@ object LateInitStyle {
             }
             false -> 1.0 / i
         }
-    }
-
-
 }
